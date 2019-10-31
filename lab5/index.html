@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container d-flex">
+            <div class="logo">
+                <a href="#home" class="logo-link">Main</a>
+            </div>
+            <nav class="menu d-flex">
+                <a href="#about" class="menu-link">Contrast</a>
+                <a href="#works" class="menu-link">Median filtering</a>
+                <a href="#contact" class="menu-link">Time</a>
+            </nav>
+        </div>
+    </header>
+    <section class="section" id="home">
+        <div class="container">
+                <h1>Перехоплення відеопотоку та конвертування картини в текстовий файл</h1>
+            <div class="content clearfix">
+                <div class="left">
+                    <video autoplay="true" id="videoElement"></video>
+                </div>
+
+                <div class="right">
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+            <div id="control_panel">
+                <button onclick="stop()">Зупинити відеотрансляцію</button>
+                <button onclick="start()">Розпочати відеотрансляцію</button>
+                <button onclick="takeSnapshot(1)">Зробити фото</button>
+                <button onclick="convertPhoto()">Конвертувати фото</button>
+                <button onclick="download(s, 'myfilename.rtf', 'text/plain')">Завантажити конвертоване фото</button>
+                <button><a href="#about" id="spb">Контрастування фото</a></button>
+                <button onclick="takeSnapshot(2)">Зробити 2 фото</button>
+                <button onclick="takeSnapshot(3)">Зробити 3 фото</button>
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="section" id="about">
+        <div class="container d-flex">
+            <div class="map">
+                <p>Original image</p>
+                <canvas id="img"></canvas>
+            </div>
+
+            <div class="map">
+                <p>Contrast</p>
+                <div>
+                    <label>
+                        <input id="rangeContrast" type="range" min="-255" max="255" value="0" />
+                        <span id="valueContrast">0</span>
+                    </label>
+                </div>
+                <canvas id="canvasContrast" height="16"></canvas>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="works">
+        <div class="container d-flex">
+            <div class="map">
+                <img id="imgf">
+                <p id="sel_image">Select image:</p>
+                <input id="input" type="file" />
+                <button onclick="filter()">Filter image</button>
+            </div>
+
+            <div class="map">
+                <canvas id="canvasFilter" height="16"></canvas>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="contact">
+        <div class="container d-flex">
+            <div class="map">
+                    <canvas id="canvas2"></canvas>
+                    <canvas id="canvas3"></canvas>
+            </div>
+            <div class="map">
+               <button onclick="photoFrom3()">Make 1 photo from 3</button>
+                <div class="right">
+                    <canvas id="canvas4"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script type="text/javascript" src="js/javaScript.js"></script>
+</body>
+</html>
